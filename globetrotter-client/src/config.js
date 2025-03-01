@@ -9,3 +9,5 @@ const config = {
         getByInviteCode: '/api/users/by-invite-code'
     }
 };
+
+export default config;
