@@ -1,6 +1,6 @@
 const config = {
     apiBaseUrl: process.env.NODE_ENV === 'production' 
-        ? 'https://your-railway-app-name.up.railway.app' // Your actual Railway URL
+        ? 'https://travel-guessing-game-production.up.railway.app' 
         : 'http://localhost:5047',
     endpoints: {
         register: '/api/users/register',
@@ -9,5 +9,3 @@ const config = {
         getByInviteCode: '/api/users/by-invite-code'
     }
 };
-
-export default config;
