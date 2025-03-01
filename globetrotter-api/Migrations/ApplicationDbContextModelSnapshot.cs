@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GlobetrotterAPI.Migrations
+namespace globetrotterapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -19,12 +19,12 @@ namespace GlobetrotterAPI.Migrations
 
             modelBuilder.Entity("GlobetrotterAPI.Models.Clue", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("DestinationId")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("DestinationId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -39,9 +39,9 @@ namespace GlobetrotterAPI.Migrations
 
             modelBuilder.Entity("GlobetrotterAPI.Models.Destination", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -58,12 +58,12 @@ namespace GlobetrotterAPI.Migrations
 
             modelBuilder.Entity("GlobetrotterAPI.Models.FunFact", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("DestinationId")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("DestinationId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -78,12 +78,12 @@ namespace GlobetrotterAPI.Migrations
 
             modelBuilder.Entity("GlobetrotterAPI.Models.Trivia", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("DestinationId")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("DestinationId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -109,6 +109,7 @@ namespace GlobetrotterAPI.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("InviteCode")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Score")
