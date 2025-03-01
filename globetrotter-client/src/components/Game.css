@@ -80,29 +80,50 @@
 }
 
 .fun-fact {
-  background: #f1c40f;
+  text-align: center;
   padding: 1rem;
+  margin: 1rem;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
-  margin-top: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.sad-face {
-  font-size: 4rem;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.fun-fact p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #2c3e50;
 }
 
 .next-button {
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  background: #2ecc71;
+  background: #27ae60;
   color: white;
   border: none;
-  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.next-button:hover {
+  background: #219a52;
+}
+
+.sad-faces-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.sad-face {
+  position: absolute;
+  font-size: 2rem;
+  pointer-events: none;
 }
 
 .loading {

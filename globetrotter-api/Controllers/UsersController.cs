@@ -5,6 +5,7 @@ using GlobetrotterAPI.Models;
 using GlobetrotterAPI.Models.DTOs;
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace GlobetrotterAPI.Controllers
 {
@@ -13,10 +14,12 @@ namespace GlobetrotterAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UsersController> _logger;
 
-        public UsersController(ApplicationDbContext context)
+        public UsersController(ApplicationDbContext context, ILogger<UsersController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         [HttpPost("register")]
@@ -53,12 +56,18 @@ namespace GlobetrotterAPI.Controllers
         [HttpGet("by-invite-code/{inviteCode}")]
         public async Task<ActionResult<UserDTO>> GetByInviteCode(string inviteCode)
         {
+            _logger.LogInformation($"Attempting to find user with invite code: {inviteCode}");
+            
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.InviteCode == inviteCode);
 
             if (user == null)
+            {
+                _logger.LogWarning($"No user found with invite code: {inviteCode}");
                 return NotFound("User not found");
+            }
 
+            _logger.LogInformation($"Found user {user.Username} with invite code: {inviteCode}");
             return Ok(new UserDTO
             {
                 Id = user.Id,

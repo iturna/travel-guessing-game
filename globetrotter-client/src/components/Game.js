@@ -191,7 +191,7 @@ const Game = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
           >
-            {funFact}
+            <p>{funFact}</p>
             <motion.button
               className="next-button"
               onClick={fetchNewDestination}
@@ -205,14 +205,30 @@ const Game = () => {
       </AnimatePresence>
 
       {showSadFace && (
-        <motion.div
-          className="sad-face"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.5 }}
-        >
-          😢
-        </motion.div>
+        <div className="sad-faces-container">
+          {[...Array(10)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="sad-face"
+              initial={{ 
+                opacity: 1, 
+                y: -50,
+                x: Math.random() * window.innerWidth
+              }}
+              animate={{ 
+                y: window.innerHeight + 50,
+                opacity: 0
+              }}
+              transition={{ 
+                duration: 2,
+                delay: i * 0.2,
+                ease: "linear"
+              }}
+            >
+              😢
+            </motion.div>
+          ))}
+        </div>
       )}
 
       {user && (

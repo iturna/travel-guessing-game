@@ -2949,9 +2949,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ismail/Code/travel-guessing-game/globetrotter-api/GlobetrotterAPI.csproj",
-      "projectName": "GlobetrotterAPI",
-      "projectPath": "/Users/ismail/Code/travel-guessing-game/globetrotter-api/GlobetrotterAPI.csproj",
+      "projectUniqueName": "/Users/ismail/Code/travel-guessing-game/globetrotter-api/globetrotter-api.csproj",
+      "projectName": "globetrotter-api",
+      "projectPath": "/Users/ismail/Code/travel-guessing-game/globetrotter-api/globetrotter-api.csproj",
       "packagesPath": "/Users/ismail/.nuget/packages/",
       "outputPath": "/Users/ismail/Code/travel-guessing-game/globetrotter-api/obj/",
       "projectStyle": "PackageReference",

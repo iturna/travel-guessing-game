@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "t+EXuxUaZ1OQIO3eMxcTWxTJ1DkZueyhxkvmrNGlHMs=",
-  "Source": "GlobetrotterAPI",
-  "BasePath": "_content/GlobetrotterAPI",
+  "Hash": "omWyNGrvHuT+gwEl1qxf9/4xBXFnh3w+nnDFGG0zfLY=",
+  "Source": "globetrotter-api",
+  "BasePath": "_content/globetrotter-api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
