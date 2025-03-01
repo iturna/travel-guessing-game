@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("globetrotter-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ee3f966e652ad0b6944eb9a54d21712a0aec759")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2f5ad0e1ae2e008cb16bddaedb1f0a0edf6bca4")]
 [assembly: System.Reflection.AssemblyProductAttribute("globetrotter-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("globetrotter-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -50,8 +50,6 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader());
 });
 
-// Make sure to actually use the CORS policy
-app.UseCors("AllowVercelFrontend");
 
 var app = builder.Build();
 
@@ -61,6 +59,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowVercelFrontend");
 
 // Use CORS before other middleware
 //app.UseCors();
