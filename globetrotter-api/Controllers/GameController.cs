@@ -91,6 +91,7 @@ namespace GlobetrotterAPI.Controllers
 
                 var destination = await _context.Destinations
                     .Include(d => d.FunFacts)
+                    .Include(d => d.Trivia)
                     .FirstOrDefaultAsync(d => d.Id == request.DestinationId);
 
                 if (destination == null)
@@ -104,10 +105,18 @@ namespace GlobetrotterAPI.Controllers
                     ? destination.FunFacts[_random.Next(destination.FunFacts.Count)].Text
                     : "No fun fact available for this destination.";
 
+                // Get trivia items
+                var trivia = destination.Trivia
+                    .Select(t => t.Text)
+                    .ToList();
+
                 return Ok(new AnswerResponse
                 {
                     IsCorrect = isCorrect,
                     FunFact = funFact,
+                    Trivia = trivia,
+                    CorrectCity = destination.City,
+                    Country = destination.Country,
                     TotalScore = isCorrect ? 1 : 0
                 });
             }

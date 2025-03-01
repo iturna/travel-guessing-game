@@ -10,11 +10,14 @@ import './Game.css';
 import CityOptions from './CityOptions';
 import Clues from './Clues';
 import SadFace from './SadFace';
+import DestinationDetails from './DestinationDetails';
 
 const Game = () => {
   const [searchParams] = useSearchParams();
   const [currentDestination, setCurrentDestination] = useState(null);
   const [score, setScore] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
   const [funFact, setFunFact] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,6 +26,7 @@ const Game = () => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
   const [invitedBy, setInvitedBy] = useState(null);
+  const [destinationDetails, setDestinationDetails] = useState(null);
 
   useEffect(() => {
     const inviteCode = searchParams.get('inviteCode');
@@ -58,6 +62,7 @@ const Game = () => {
     setFunFact('');
     setError(null);
     setShowSadFace(false);
+    setDestinationDetails(null);
     
     try {
       const response = await axios.get(
@@ -96,14 +101,25 @@ const Game = () => {
 
       if (response.data.isCorrect) {
         setScore(prev => prev + 1);
+        setCorrectAnswers(prev => prev + 1);
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 3000);
       } else {
+        setIncorrectAnswers(prev => prev + 1);
         setShowSadFace(true);
         setTimeout(() => setShowSadFace(false), 3000);
       }
 
       setFunFact(response.data.funFact);
+      setDestinationDetails({
+        isCorrect: response.data.isCorrect,
+        correctCity: response.data.correctCity,
+        country: response.data.country,
+        funFact: response.data.funFact,
+        trivia: response.data.trivia,
+        correctAnswers: response.data.isCorrect ? correctAnswers + 1 : correctAnswers,
+        incorrectAnswers: !response.data.isCorrect ? incorrectAnswers + 1 : incorrectAnswers
+      });
     } catch (error) {
       console.error('Error checking answer:', error);
       setError('Failed to check answer. Please try again.');
@@ -158,15 +174,19 @@ const Game = () => {
     <div className="game-container">
       {showConfetti && <Confetti />}
       <motion.div 
-        className="score"
+        className="score-board"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >
-        Score: {score}
+        <div className="score-total">Score: {score}</div>
+        <div className="score-details">
+          <span className="correct-answers">✓ {correctAnswers}</span>
+          <span className="incorrect-answers">✗ {incorrectAnswers}</span>
+        </div>
       </motion.div>
       
       <div className="options">
-        {currentDestination && (
+        {currentDestination && !destinationDetails && (
           <div className="game-content">
             <Clues clues={currentDestination.clues} />
             
@@ -180,23 +200,17 @@ const Game = () => {
       </div>
 
       <AnimatePresence>
-        {funFact && (
-          <motion.div
-            className="fun-fact"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-          >
-            <p>{funFact}</p>
-            <motion.button
-              className="next-button"
-              onClick={fetchNewDestination}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Next Destination
-            </motion.button>
-          </motion.div>
+        {destinationDetails && (
+          <DestinationDetails 
+            isCorrect={destinationDetails.isCorrect}
+            correctCity={destinationDetails.correctCity}
+            country={destinationDetails.country}
+            funFact={destinationDetails.funFact}
+            trivia={destinationDetails.trivia}
+            correctAnswers={correctAnswers}
+            incorrectAnswers={incorrectAnswers}
+            onNextDestination={fetchNewDestination}
+          />
         )}
       </AnimatePresence>
 
@@ -207,6 +221,8 @@ const Game = () => {
           score={score}
           username={user.username}
           inviteCode={user.inviteCode}
+          correctAnswers={correctAnswers}
+          incorrectAnswers={incorrectAnswers}
         />
       )}
     </div>

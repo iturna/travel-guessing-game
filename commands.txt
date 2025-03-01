@@ -7,7 +7,10 @@ cd globetrotter-client
 # Install the required packages
 npm install framer-motion react-confetti axios
 
-cd globetrotter-api
+cd /Users/ismail/Code/travel-guessing-game/globetrotter-api
+cd /Users/ismail/Code/travel-guessing-game/globetrotter-client
+
+npm start
 
 # Add Entity Framework Core packages
 dotnet add package Microsoft.EntityFrameworkCore
