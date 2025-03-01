@@ -1,13 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ShareGame = ({ score, username, inviteCode }) => {
-  // Use window.location.protocol to match the current protocol
+const ShareGame = ({ score, username, inviteCode, correctAnswers, incorrectAnswers }) => {
   const shareUrl = new URL('/play', `${window.location.protocol}//${window.location.host}`);
   shareUrl.searchParams.set('inviteCode', inviteCode);
 
-  // Force HTTP in the shared URL
-  const shareUrlString = shareUrl.toString().replace('https://', 'http://');
+  // Don't force HTTP anymore - let it use the protocol of the site
+  const shareUrlString = shareUrl.toString();
   const shareText = encodeURIComponent(`I scored ${score} points in Globetrotter! Can you beat my score? ${shareUrlString}`);
   const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}`;
 
@@ -17,15 +16,13 @@ const ShareGame = ({ score, username, inviteCode }) => {
         await navigator.share({
           title: 'Play Globetrotter with me!',
           text: `I scored ${score} points in Globetrotter! Can you beat my score?`,
-          url: shareUrlString  // Use the HTTP version
+          url: shareUrlString
         });
       } catch (error) {
         console.error('Error sharing:', error);
-        // Fallback to WhatsApp sharing if Web Share API fails
         window.open(whatsappUrl, '_blank');
       }
     } else {
-      // Direct WhatsApp sharing for browsers that don't support Web Share API
       window.open(whatsappUrl, '_blank');
     }
   };
@@ -45,11 +42,11 @@ const ShareGame = ({ score, username, inviteCode }) => {
           whileTap={{ scale: 0.95 }}
           className="share-button"
         >
-          <span>Share on WhatsApp</span>
+          <span>Share Your Score</span>
         </motion.button>
       </div>
     </motion.div>
   );
 };
 
-export default ShareGame; 
+export default ShareGame;

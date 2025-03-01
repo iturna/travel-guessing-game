@@ -34,6 +34,19 @@ builder.Services.AddCors(options =>
     });
 });
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5047";
+builder.WebHost.UseUrls($"http://*:{port}");
+
+// Update your CORS policy to allow your Vercel frontend
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowVercelFrontend",
+        builder => builder
+            .WithOrigins("https://globetrotter-client-pz69lg7mf-iturnas-projects.vercel.app/") // Your Vercel domain
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -44,7 +57,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // Use CORS before other middleware
-app.UseCors();
+//app.UseCors();
 
 // Comment out or remove this line
 // app.UseHttpsRedirection();
