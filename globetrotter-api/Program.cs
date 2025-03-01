@@ -40,14 +40,16 @@ builder.WebHost.UseUrls($"http://*:{port}");
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowVercelFrontend",
-        builder => builder
-            .WithOrigins(
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins(
+                "http://localhost:3000",
                 "https://travel-guessing-game-green.vercel.app",
-                "https://globetrotter-client-pz69lg7mf-iturnas-projects.vercel.app"  
+                "https://globetrotter-client-pz69lg7mf-iturnas-projects.vercel.app"
             )
-            .AllowAnyMethod()
-            .AllowAnyHeader());
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
 });
 
 
@@ -60,7 +62,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowVercelFrontend");
+app.UseCors();
 
 // Add this after app.MapControllers();
 
