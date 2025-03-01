@@ -45,7 +45,7 @@ builder.Services.AddCors(options =>
         builder.WithOrigins(
                 "http://localhost:3000",
                 "https://travel-guessing-game-green.vercel.app",
-                "https://globetrotter-client-pz69lg7mf-iturnas-projects.vercel.app"
+                "https://globetrotter-client-rlgsc4j9i-iturnas-projects.vercel.app"
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
