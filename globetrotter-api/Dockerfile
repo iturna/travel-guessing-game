@@ -13,6 +13,7 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
 COPY --from=build /app/out .
+COPY --from=build /app/Data/Resources /app/Data/Resources
 
 # Set environment variables
 ENV ASPNETCORE_URLS=http://+:$PORT

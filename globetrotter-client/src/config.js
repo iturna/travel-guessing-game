@@ -1,9 +1,6 @@
 const config = {
-    //apiBaseUrl: window.location.hostname === 'localhost' 
-    //? 'http://localhost:5047'
-    //: `http://${window.location.hostname}:5047`,
     apiBaseUrl: process.env.NODE_ENV === 'production' 
-        ? 'https://your-backend-api-url.com' // Replace with your actual backend URL when deployed
+        ? 'https://your-railway-app-name.up.railway.app' // Your actual Railway URL
         : 'http://localhost:5047',
     endpoints: {
         register: '/api/users/register',
@@ -13,4 +10,4 @@ const config = {
     }
 };
 
-export default config; 
+export default config;

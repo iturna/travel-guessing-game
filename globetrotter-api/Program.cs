@@ -37,15 +37,24 @@ builder.Services.AddCors(options =>
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5047";
 builder.WebHost.UseUrls($"http://*:{port}");
 
+
 // Update your CORS policy to allow your Vercel frontend
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowVercelFrontend",
         builder => builder
-            .WithOrigins("https://globetrotter-client-pz69lg7mf-iturnas-projects.vercel.app") // Your Vercel domain
+            .WithOrigins(
+                "https://travel-guessing-game-green.vercel.app",
+                "https://globetrotter-client-pz69lg7mf-iturnas-projects.vercel.app",
+            )
             .AllowAnyMethod()
             .AllowAnyHeader());
 });
+
+// ...
+
+// Make sure to actually use the CORS policy
+app.UseCors("AllowVercelFrontend");
 
 var app = builder.Build();
 
