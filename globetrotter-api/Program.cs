@@ -63,7 +63,6 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowVercelFrontend");
 
 // Add this after app.MapControllers();
-app.MapGet("/", () => "Globetrotter API is running!");
 
 // Use CORS before other middleware
 //app.UseCors();
@@ -73,6 +72,7 @@ app.MapGet("/", () => "Globetrotter API is running!");
 
 app.UseAuthorization();
 app.MapControllers();
+app.MapGet("/", () => "Globetrotter API is running!");
 
 // Ensure database is created and seeded
 using (var scope = app.Services.CreateScope())
