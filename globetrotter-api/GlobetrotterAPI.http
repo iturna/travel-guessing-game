@@ -1,0 +1,6 @@
+@GlobetrotterAPI_HostAddress = http://localhost:5047
+
+GET {{GlobetrotterAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

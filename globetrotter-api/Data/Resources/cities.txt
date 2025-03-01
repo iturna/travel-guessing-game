@@ -1,0 +1,110 @@
+	1.	Paris - France
+	2.	Tokyo - Japan
+	3.	New York - United States
+	4.	London - United Kingdom
+	5.	Sydney - Australia
+	6.	Rio de Janeiro - Brazil
+	7.	Berlin - Germany
+	8.	Dubai - United Arab Emirates
+	9.	Moscow - Russia
+	10.	Rome - Italy
+	11.	Istanbul - Turkey
+	12.	Los Angeles - United States
+	13.	Madrid - Spain
+	14.	Beijing - China
+	15.	Singapore - Singapore
+	16.	Bangkok - Thailand
+	17.	Toronto - Canada
+	18.	Seoul - South Korea
+	19.	Mexico City - Mexico
+	20.	Buenos Aires - Argentina
+	21.	Amsterdam - Netherlands
+	22.	Vienna - Austria
+	23.	Prague - Czech Republic
+	24.	Lisbon - Portugal
+	25.	Cairo - Egypt
+	26.	Delhi - India
+	27.	Mumbai - India
+	28.	Hong Kong - China (Special Administrative Region)
+	29.	Shanghai - China
+	30.	Barcelona - Spain
+	31.	Milan - Italy
+	32.	Athens - Greece
+	33.	São Paulo - Brazil
+	34.	Cape Town - South Africa
+	35.	Zurich - Switzerland
+	36.	Chicago - United States
+	37.	Kuala Lumpur - Malaysia
+	38.	Warsaw - Poland
+	39.	Dublin - Ireland
+	40.	Brussels - Belgium
+	41.	Stockholm - Sweden
+	42.	Helsinki - Finland
+	43.	Oslo - Norway
+	44.	Copenhagen - Denmark
+	45.	Manila - Philippines
+	46.	Jakarta - Indonesia
+	47.	Taipei - Taiwan
+	48.	Hanoi - Vietnam
+	49.	Casablanca - Morocco
+	50.	Doha - Qatar
+	51.	Bogotá - Colombia
+	52.	Lima - Peru
+	53.	Santiago - Chile
+	54.	Vancouver - Canada
+	55.	Montreal - Canada
+	56.	San Francisco - United States
+	57.	Miami - United States
+	58.	Houston - United States
+	59.	Washington, D.C. - United States
+	60.	Seattle - United States
+	61.	Boston - United States
+	62.	Buenos Aires - Argentina
+	63.	Johannesburg - South Africa
+	64.	Nairobi - Kenya
+	65.	Budapest - Hungary
+	66.	Kiev (Kyiv) - Ukraine
+	67.	Reykjavik - Iceland
+	68.	Marrakesh - Morocco
+	69.	Manila - Philippines
+	70.	Ho Chi Minh City - Vietnam
+	71.	Bangalore - India
+	72.	Auckland - New Zealand
+	73.	Christchurch - New Zealand
+	74.	Perth - Australia
+	75.	Melbourne - Australia
+	76.	Adelaide - Australia
+	77.	Brussels - Belgium
+	78.	Antwerp - Belgium
+	79.	Luxembourg City - Luxembourg
+	80.	Sarajevo - Bosnia and Herzegovina
+	81.	Belgrade - Serbia
+	82.	Bucharest - Romania
+	83.	Bratislava - Slovakia
+	84.	Ljubljana - Slovenia
+	85.	Sofia - Bulgaria
+	86.	Tirana - Albania
+	87.	Skopje - North Macedonia
+	88.	Podgorica - Montenegro
+	89.	Reykjavik - Iceland
+	90.	Tallinn - Estonia
+	91.	Riga - Latvia
+	92.	Vilnius - Lithuania
+	93.	Helsinki - Finland
+	94.	Nuuk - Greenland
+	95.	Ulaanbaatar - Mongolia
+	96.	Yangon - Myanmar
+	97.	Phnom Penh - Cambodia
+	98.	Dhaka - Bangladesh
+	99.	Addis Ababa - Ethiopia
+	100.	Dakar - Senegal
+	101.	Lusaka - Zambia
+	102.	Harare - Zimbabwe
+	103.	Windhoek - Namibia
+	104.	Gaborone - Botswana
+	105.	Algiers - Algeria
+	106.	Tunis - Tunisia
+	107.	Muscat - Oman
+	108.	Kuwait City - Kuwait
+	109.	Riyadh - Saudi Arabia
+	110.	Amman - Jordan

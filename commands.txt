@@ -1,0 +1,24 @@
+# Create a fresh React app
+npx create-react-app globetrotter-client
+
+# Navigate into the project
+cd globetrotter-client
+
+# Install the required packages
+npm install framer-motion react-confetti axios
+
+cd globetrotter-api
+
+# Add Entity Framework Core packages
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+
+http://localhost:5047/swagger/index.html
+
+
+rm -rf Migrations/
+rm Globetrotter.db
+dotnet ef migrations add InitialCreate
+dotnet run
