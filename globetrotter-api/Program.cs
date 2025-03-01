@@ -42,7 +42,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowVercelFrontend",
         builder => builder
-            .WithOrigins("https://globetrotter-client-pz69lg7mf-iturnas-projects.vercel.app/") // Your Vercel domain
+            .WithOrigins("https://globetrotter-client-pz69lg7mf-iturnas-projects.vercel.app") // Your Vercel domain
             .AllowAnyMethod()
             .AllowAnyHeader());
 });
