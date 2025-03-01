@@ -25,3 +25,9 @@ rm -rf Migrations/
 rm Globetrotter.db
 dotnet ef migrations add InitialCreate
 dotnet run
+
+# versel deploy 
+npm install -g vercel
+vercel login
+cd globetrotter-client
+vercel --prod

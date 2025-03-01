@@ -1,6 +1,6 @@
 [build]
 builder = "DOCKERFILE"
-dockerfilePath = "Dockerfile"
+dockerfilePath = "globetrotter-api/Dockerfile"
 
 [deploy]
 startCommand = "dotnet globetrotter-api.dll"
