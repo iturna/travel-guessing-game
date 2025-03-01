@@ -1,10 +1,10 @@
 using System;
 
-namespace GlobetrotterAPI.Models.DTOs;
-
-public class AnswerRequest
+namespace GlobetrotterAPI.Models.DTOs
 {
-    public required Guid DestinationId { get; set; }
-    public required string Answer { get; set; }
-}
-
+    public class AnswerRequest
+    {
+        public Guid DestinationId { get; set; }
+        public Guid AnswerId { get; set; }
+    }
+} 

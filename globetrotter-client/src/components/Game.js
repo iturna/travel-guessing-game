@@ -8,6 +8,8 @@ import { useSearchParams } from 'react-router-dom';
 import config from '../config';
 import './Game.css';
 import CityOptions from './CityOptions';
+import Clues from './Clues';
+import SadFace from './SadFace';
 
 const Game = () => {
   const [searchParams] = useSearchParams();
@@ -78,7 +80,7 @@ const Game = () => {
     }
   };
 
-  const handleAnswer = async (answer) => {
+  const handleAnswer = async (answerId) => {
     if (answered) return;
     
     try {
@@ -86,7 +88,7 @@ const Game = () => {
         `${config.apiBaseUrl}${config.endpoints.checkAnswer}`,
         {
           destinationId: currentDestination.id,
-          answer
+          answerId: answerId
         }
       );
 
@@ -163,24 +165,18 @@ const Game = () => {
         Score: {score}
       </motion.div>
       
-      <div className="clues">
-        {currentDestination?.clues.map((clue, index) => (
-          <motion.p
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-          >
-            {clue}
-          </motion.p>
-        ))}
-      </div>
-
       <div className="options">
-        <CityOptions 
-          options={currentDestination?.options || []} 
-          onSelect={handleAnswer}
-        />
+        {currentDestination && (
+          <div className="game-content">
+            <Clues clues={currentDestination.clues} />
+            
+            <CityOptions 
+              options={currentDestination.options} 
+              onAnswer={handleAnswer} 
+              disabled={answered}
+            />
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
@@ -204,36 +200,11 @@ const Game = () => {
         )}
       </AnimatePresence>
 
-      {showSadFace && (
-        <div className="sad-faces-container">
-          {[...Array(10)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="sad-face"
-              initial={{ 
-                opacity: 1, 
-                y: -50,
-                x: Math.random() * window.innerWidth
-              }}
-              animate={{ 
-                y: window.innerHeight + 50,
-                opacity: 0
-              }}
-              transition={{ 
-                duration: 2,
-                delay: i * 0.2,
-                ease: "linear"
-              }}
-            >
-              😢
-            </motion.div>
-          ))}
-        </div>
-      )}
+      {showSadFace && <SadFace />}
 
       {user && (
         <ShareGame 
-          score={score} 
+          score={score}
           username={user.username}
           inviteCode={user.inviteCode}
         />

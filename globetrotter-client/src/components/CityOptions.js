@@ -1,19 +1,20 @@
 import React from 'react';
 
-function CityOptions({ options, onSelect }) {
+const CityOptions = ({ options, onAnswer, disabled }) => {
     return (
-        <div className="options-grid">
-            {options.map((city, index) => (
+        <div className="city-options-grid">
+            {options.map((city) => (
                 <button
-                    key={index}
-                    onClick={() => onSelect(city)}
+                    key={city.id}
+                    onClick={() => onAnswer(city.id)}
+                    disabled={disabled}
                     className="city-option"
                 >
-                    {city}
+                    {city.name}
                 </button>
             ))}
         </div>
     );
-}
+};
 
 export default CityOptions; 

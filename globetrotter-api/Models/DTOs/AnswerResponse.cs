@@ -1,5 +1,3 @@
-using System;
-
 namespace GlobetrotterAPI.Models.DTOs
 {
     public class AnswerResponse
@@ -8,4 +6,4 @@ namespace GlobetrotterAPI.Models.DTOs
         public string FunFact { get; set; } = string.Empty;
         public int TotalScore { get; set; }
     }
-}
+} 
