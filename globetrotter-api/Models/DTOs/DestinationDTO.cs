@@ -9,6 +9,7 @@ namespace GlobetrotterAPI.Models.DTOs
         public Guid Id { get; set; }
         public List<string> Clues { get; set; } = new();
         public List<CityOption> Options { get; set; } = new();
+        public List<string> Trivia { get; set; } = new();
     }
 
     public class CityOption

@@ -1,0 +1,30 @@
+.trivia-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trivia-container h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.trivia-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trivia-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.trivia-item:last-child {
+  border-bottom: none;
+} 

@@ -11,6 +11,7 @@ import CityOptions from './CityOptions';
 import Clues from './Clues';
 import SadFace from './SadFace';
 import DestinationDetails from './DestinationDetails';
+import Trivia from './Trivia';
 
 const Game = () => {
   const [searchParams] = useSearchParams();
@@ -27,6 +28,7 @@ const Game = () => {
   const [user, setUser] = useState(null);
   const [invitedBy, setInvitedBy] = useState(null);
   const [destinationDetails, setDestinationDetails] = useState(null);
+  const [trivia, setTrivia] = useState([]);
 
   useEffect(() => {
     const inviteCode = searchParams.get('inviteCode');
@@ -60,6 +62,7 @@ const Game = () => {
     setLoading(true);
     setAnswered(false);
     setFunFact('');
+    setTrivia([]);
     setError(null);
     setShowSadFace(false);
     setDestinationDetails(null);
@@ -111,6 +114,7 @@ const Game = () => {
       }
 
       setFunFact(response.data.funFact);
+      setTrivia(response.data.trivia);
       setDestinationDetails({
         isCorrect: response.data.isCorrect,
         correctCity: response.data.correctCity,

@@ -35,6 +35,7 @@ namespace GlobetrotterAPI.Controllers
                 
                 var destination = await _context.Destinations
                     .Include(d => d.Clues)
+                    .Include(d => d.Trivia)  // Include trivia data
                     .Skip(skip)
                     .FirstOrDefaultAsync();
 
@@ -68,7 +69,8 @@ namespace GlobetrotterAPI.Controllers
                 {
                     Id = destination.Id,
                     Clues = destination.Clues.Select(c => c.Text).ToList(),
-                    Options = options
+                    Options = options,
+                    Trivia = destination.Trivia.Select(t => t.Text).ToList()  // Add trivia to the response
                 });
             }
             catch (Exception ex)
@@ -124,36 +126,6 @@ namespace GlobetrotterAPI.Controllers
             {
                 _logger.LogError(ex, "Error checking answer: {Message}", ex.Message);
                 return StatusCode(500, "Error checking answer");
-            }
-        }
-
-        private async Task<List<string>> GetRandomCityOptions(string correctCity)
-        {
-            try
-            {
-                // Get all cities excluding the correct one
-                var otherCities = await _context.Destinations
-                    .Where(d => d.City != correctCity)
-                    .Select(d => d.City)
-                    .ToListAsync();
-
-                // Randomly select 3 cities in memory (after fetching from DB)
-                var randomCities = otherCities
-                    .OrderBy(_ => _random.Next())
-                    .Take(3)
-                    .ToList();
-
-                // Add the correct city and shuffle all options
-                var options = new List<string> { correctCity };
-                options.AddRange(randomCities);
-                
-                // Shuffle the options in memory
-                return options.OrderBy(_ => _random.Next()).ToList();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error getting random city options");
-                throw;
             }
         }
     }
