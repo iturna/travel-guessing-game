@@ -1,0 +1,44 @@
+.share-container {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.share-container h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.share-button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.share-button {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.share-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
+    z-index: 1;
+}
+
+.share-button span {
+    position: relative;
+    z-index: 2;
+} 

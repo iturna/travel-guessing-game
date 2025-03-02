@@ -1,0 +1,34 @@
+.score-display {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #212529;
+}
+
+.score-value.correct {
+    color: #28a745;
+}
+
+.score-value.incorrect {
+    color: #dc3545;
+} 

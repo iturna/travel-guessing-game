@@ -1,0 +1,26 @@
+.city-options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.city-option {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.city-option:hover:not(:disabled) {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.city-option:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+} 
